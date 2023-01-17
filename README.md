@@ -682,7 +682,7 @@ The free5GC C-Plane log when executed is as follows.
 
 <h3 id="run_ue">Run UERANSIM (UE)</h3>
 
-Ping the following three destination IP addresses and confirm that they are routed through different UPFs.
+Ping the following four destination IP addresses and confirm that they are routed through different UPFs.
 
 - google.com - routing from PSA-UPF1 to Internet
 - 8.8.8.8 - routing from I-UPF to Internet
