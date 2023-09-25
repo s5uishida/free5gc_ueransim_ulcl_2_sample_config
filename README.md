@@ -3,7 +3,9 @@ This describes a very simple configuration that uses free5GC and UERANSIM for UL
 
 ---
 
-<h2 id="conf_list">List of Sample Configurations</h2>
+<a id="conf_list"></a>
+
+## List of Sample Configurations
 
 1. [One SMF, one UPF and one DNN](https://github.com/s5uishida/free5gc_srsran_sample_config)
 2. [One SMF, Multiple UPFs and DNNs](https://github.com/s5uishida/free5gc_ueransim_sample_config)
@@ -15,7 +17,9 @@ This describes a very simple configuration that uses free5GC and UERANSIM for UL
 
 ---
 
-<h2 id="misc">Miscellaneous Notes</h2>
+<a id="misc"></a>
+
+## Miscellaneous Notes
 
 - [Install MongoDB 6.0 and free5GC WebUI](https://github.com/s5uishida/free5gc_install_mongodb6_webui)
 - [Install MongoDB 4.4.18 on Ubuntu 20.04 for Raspberry Pi 4B](https://github.com/s5uishida/install_mongodb_on_ubuntu_for_rp4b)
@@ -24,7 +28,9 @@ This describes a very simple configuration that uses free5GC and UERANSIM for UL
 
 ---
 
-<h2 id="toc">Table of Contents</h2>
+<a id="toc"></a>
+
+## Table of Contents
 
 - [Overview of free5GC 5GC Simulation Mobile Network](#overview)
 - [Changes in configuration files of free5GC 5GC and UERANSIM UE / RAN](#changes)
@@ -53,7 +59,9 @@ This describes a very simple configuration that uses free5GC and UERANSIM for UL
 - [Changelog (summary)](#changelog)
 
 ---
-<h2 id="overview">Overview of free5GC 5GC Simulation Mobile Network</h2>
+<a id="overview"></a>
+
+## Overview of free5GC 5GC Simulation Mobile Network
 
 The following minimum configuration was set as a condition.
 - I-UPF selects the communication paths according to the destination host and network.
@@ -108,13 +116,17 @@ The communication paths to be confirmed for each destination IP address are as f
 | 172.17.0.1 | I-UPF --> PSA-UPF1 --> 172.17.0.0/16 (Docker network on local) |
 | 172.18.0.1 | I-UPF --> PSA-UPF2 --> 172.18.0.0/16 (Docker network on local) |
 
-<h2 id="changes">Changes in configuration files of free5GC 5GC and UERANSIM UE / RAN</h2>
+<a id="changes"></a>
+
+## Changes in configuration files of free5GC 5GC and UERANSIM UE / RAN
 
 Please refer to the following for building free5GC and UERANSIM respectively.
 - free5GC v3.2.1 - https://github.com/free5gc/free5gc/wiki/Installation
 - UERANSIM v3.2.6 - https://github.com/aligungr/UERANSIM/wiki/Installation
 
-<h3 id="changes_cp">Changes in configuration files of free5GC 5GC C-Plane</h3>
+<a id="changes_cp"></a>
+
+### Changes in configuration files of free5GC 5GC C-Plane
 
 - `free5gc/config/amfcfg.yaml`
 ```diff
@@ -329,7 +341,9 @@ ueRoutingInfo: # the list of UE routing information
         path: [I-UPF]
 ```
 
-<h3 id="changes_up1">Changes in configuration files of free5GC 5GC U-Plane (I-UPF)</h3>
+<a id="changes_up1"></a>
+
+### Changes in configuration files of free5GC 5GC U-Plane (I-UPF)
 
 - `free5gc/config/upfcfg.yaml`
 ```diff
@@ -368,7 +382,9 @@ ueRoutingInfo: # the list of UE routing information
  logger: # log output setting
 ```
 
-<h3 id="changes_up2">Changes in configuration files of free5GC 5GC U-Plane (PSA-UPF1)</h3>
+<a id="changes_up2"></a>
+
+### Changes in configuration files of free5GC 5GC U-Plane (PSA-UPF1)
 
 - `free5gc/config/upfcfg.yaml`
 ```diff
@@ -406,7 +422,9 @@ ueRoutingInfo: # the list of UE routing information
  logger: # log output setting
 ```
 
-<h3 id="changes_up3">Changes in configuration files of free5GC 5GC U-Plane (PSA-UPF2)</h3>
+<a id="changes_up3"></a>
+
+### Changes in configuration files of free5GC 5GC U-Plane (PSA-UPF2)
 
 - `free5gc/config/upfcfg.yaml`
 ```diff
@@ -444,9 +462,13 @@ ueRoutingInfo: # the list of UE routing information
  logger: # log output setting
 ```
 
-<h3 id="changes_ueransim">Changes in configuration files of UERANSIM UE / RAN</h3>
+<a id="changes_ueransim"></a>
 
-<h4 id="changes_ran">Changes in configuration files of RAN (gNodeB)</h4>
+### Changes in configuration files of UERANSIM UE / RAN
+
+<a id="changes_ran"></a>
+
+#### Changes in configuration files of RAN (gNodeB)
 
 - `UERANSIM/config/free5gc-gnb.yaml`
 ```diff
@@ -478,7 +500,9 @@ ueRoutingInfo: # the list of UE routing information
  # List of supported S-NSSAIs by this gNB
 ```
 
-<h4 id="changes_ue">Changes in configuration files of UE</h4>
+<a id="changes_ue"></a>
+
+#### Changes in configuration files of UE
 
 - `UERANSIM/config/free5gc-ue.yaml`
 ```diff
@@ -508,23 +532,13 @@ ueRoutingInfo: # the list of UE routing information
  uacAic:
 ```
 
-<h2 id="network_settings">Network settings of free5GC 5GC and UERANSIM UE / RAN</h2>
+<a id="network_settings"></a>
 
-<h3 id="network_settings_up1">Network settings of free5GC 5GC U-Plane (I-UPF)</h3>
+## Network settings of free5GC 5GC and UERANSIM UE / RAN
 
-First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
-```
-net.ipv4.ip_forward=1
-```
-```
-# sysctl -p
-```
-Next, configure NAPT.
-```
-# iptables -t nat -A POSTROUTING -s 10.60.0.0/16 ! -o upfgtp -j MASQUERADE
-```
+<a id="network_settings_up1"></a>
 
-<h3 id="network_settings_up2">Network settings of free5GC 5GC U-Plane (PSA-UPF1)</h3>
+### Network settings of free5GC 5GC U-Plane (I-UPF)
 
 First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
 ```
@@ -538,7 +552,9 @@ Next, configure NAPT.
 # iptables -t nat -A POSTROUTING -s 10.60.0.0/16 ! -o upfgtp -j MASQUERADE
 ```
 
-<h3 id="network_settings_up3">Network settings of free5GC 5GC U-Plane (PSA-UPF2)</h3>
+<a id="network_settings_up2"></a>
+
+### Network settings of free5GC 5GC U-Plane (PSA-UPF1)
 
 First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
 ```
@@ -552,7 +568,25 @@ Next, configure NAPT.
 # iptables -t nat -A POSTROUTING -s 10.60.0.0/16 ! -o upfgtp -j MASQUERADE
 ```
 
-<h2 id="build">Build free5GC and UERANSIM</h2>
+<a id="network_settings_up3"></a>
+
+### Network settings of free5GC 5GC U-Plane (PSA-UPF2)
+
+First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
+```
+net.ipv4.ip_forward=1
+```
+```
+# sysctl -p
+```
+Next, configure NAPT.
+```
+# iptables -t nat -A POSTROUTING -s 10.60.0.0/16 ! -o upfgtp -j MASQUERADE
+```
+
+<a id="build"></a>
+
+## Build free5GC and UERANSIM
 
 **Note. It is recommended to use go1.18.x according to the commit to free5gc/openapi on 2022.10.26.**
 
@@ -583,11 +617,15 @@ cd ..
 git checkout main
 ```
 
-<h2 id="run">Run free5GC 5GC and UERANSIM UE / RAN</h2>
+<a id="run"></a>
+
+## Run free5GC 5GC and UERANSIM UE / RAN
 
 First run the 5GC, then UERANSIM (UE & RAN implementation).
 
-<h3 id="run_up">Run free5GC 5GC U-Plane (I-UPF & PSA-UPFs)</h3>
+<a id="run_up"></a>
+
+### Run free5GC 5GC U-Plane (I-UPF & PSA-UPFs)
 
 First, run free5GC 5GC U-Planes. Please see [here](https://github.com/free5gc/free5gc/issues/170#issuecomment-773214169) for the reason.  
 **Note. It was improved on 2022.11.08, and you don't have to worry about the startup order of C-Plane and U-Plane.**
@@ -627,7 +665,9 @@ tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
 listening on upfgtp, link-type RAW (Raw IP), capture size 262144 bytes
 ```
 
-<h3 id="run_cp">Run free5GC 5GC C-Plane</h3>
+<a id="run_cp"></a>
+
+### Run free5GC 5GC C-Plane
 
 Next, run free5GC 5GC C-Plane.
 
@@ -667,7 +707,9 @@ trap terminate SIGINT
 wait ${PID_LIST}
 ```
 
-<h3 id="run_ran">Run UERANSIM (gNodeB)</h3>
+<a id="run_ran"></a>
+
+### Run UERANSIM (gNodeB)
 
 Please refer to the following for usage of UERANSIM.
 
@@ -691,7 +733,9 @@ The free5GC C-Plane log when executed is as follows.
 2022-10-09T02:01:32+09:00 [INFO][AMF][NGAP][192.168.0.131:48933] Send NG-Setup response
 ```
 
-<h3 id="run_ue">Run UERANSIM (UE)</h3>
+<a id="run_ue"></a>
+
+### Run UERANSIM (UE)
 
 Ping the following four destination IP addresses and confirm that they are routed through different UPFs.
 
@@ -702,7 +746,9 @@ Ping the following four destination IP addresses and confirm that they are route
 
 **Note. For example, 172.17.0.0/16 is docker's default network.**
 
-<h4 id="con_ue">Start UE connected to gNodeB</h4>
+<a id="con_ue"></a>
+
+#### Start UE connected to gNodeB
 
 ```
 # ./nr-ue -c ../config/free5gc-ue.yaml
@@ -960,7 +1006,9 @@ The TUNnel interface `uesimtun0` is created as follows.
 ...
 ```
 
-<h4 id="ping_google">Ping google.com going through PSA-UPF1</h4>
+<a id="ping_google"></a>
+
+#### Ping google.com going through PSA-UPF1
 
 Confirm by using `tcpdump` that the packet goes through `if=upfgtp` on U-Plane (PSA-UPF1).
 ```
@@ -981,7 +1029,9 @@ The `tcpdump` log on U-Plane (PSA-UPF1) is as follows.
 ```
 **Note. Make sure that the packets are not routed from I-UPF & PSA-UPF2 to the Internet.**
 
-<h4 id="ping_8">Ping 8.8.8.8 going through I-UPF</h4>
+<a id="ping_8"></a>
+
+#### Ping 8.8.8.8 going through I-UPF
 
 Confirm by using `tcpdump` that the packet goes through `if=upfgtp` on U-Plane (I-UPF).
 ```
@@ -1002,7 +1052,9 @@ The `tcpdump` log on U-Plane (I-UPF) is as follows.
 ```
 **Note. Make sure that the packets are not routed from PSA-UPFs to the Internet.**
 
-<h4 id="ping_docker1">Ping 172.17.0.1 going through PSA-UPF1</h4>
+<a id="ping_docker1"></a>
+
+#### Ping 172.17.0.1 going through PSA-UPF1
 
 Confirm by using `tcpdump` that the packet goes through `if=upfgtp` on U-Plane (PSA-UPF1).
 ```
@@ -1023,7 +1075,9 @@ The `tcpdump` log on U-Plane (PSA-UPF1) is as follows.
 ```
 **Note. Make sure that the packets are not routed from I-UPF & PSA-UPF2 to anywhere.**
 
-<h4 id="ping_docker2">Ping 172.18.0.1 going through PSA-UPF2</h4>
+<a id="ping_docker2"></a>
+
+#### Ping 172.18.0.1 going through PSA-UPF2
 
 Confirm by using `tcpdump` that the packet goes through `if=upfgtp` on U-Plane (PSA-UPF2).
 ```
@@ -1048,6 +1102,8 @@ The `tcpdump` log on U-Plane (PSA-UPF2) is as follows.
 Using ULCL, I was able to confirm the very simple configuration for controlling the communication path to specific destination IP addresses.
 I would like to thank the excellent developers and all the contributors of free5GC and UERANSIM.
 
-<h2 id="changelog">Changelog (summary)</h2>
+<a id="changelog"></a>
+
+## Changelog (summary)
 
 - [2022.10.09] Initial release.
