@@ -60,14 +60,14 @@ The 5GC / UE / RAN used are as follows.
 - UE / RAN - UERANSIM v3.2.6 (2024.08.27) - https://github.com/aligungr/UERANSIM
 
 Each VMs are as follows.  
-| VM # | SW & Role | IP address | OS | Memory (Min) | HDD (Min) |
+| VM # | SW & Role | IP address | OS | Mem (Min) | HDD (Min) |
 | --- | --- | --- | --- | --- | --- |
-| VM1 | free5GC  5GC C-Plane | 192.168.0.141/24 | Ubuntu<br>24.04 | 2GB | 20GB |
-| VM2 | free5GC  5GC U-Plane (I-UPF) | 192.168.0.142/24 | Ubuntu<br>24.04 | 1GB | 10GB |
-| VM3 | free5GC  5GC U-Plane (PSA-UPF1) | 192.168.0.143/24 | Ubuntu<br>24.04 | 1GB | 10GB |
-| VM4 | free5GC  5GC U-Plane (PSA-UPF2) | 192.168.0.144/24 | Ubuntu<br>24.04 | 1GB | 10GB |
-| VM5 | UERANSIM RAN (gNodeB) | 192.168.0.131/24 | Ubuntu<br>24.04 | 1GB | 10GB |
-| VM6 | UERANSIM UE | 192.168.0.132/24 | Ubuntu<br>24.04 | 1GB | 10GB |
+| VM1 | free5GC  5GC C-Plane | 192.168.0.141/24 | Ubuntu 24.04 | 2GB | 20GB |
+| VM2 | free5GC  5GC U-Plane (I-UPF) | 192.168.0.142/24 | Ubuntu 24.04 | 1GB | 10GB |
+| VM3 | free5GC  5GC U-Plane (PSA-UPF1) | 192.168.0.143/24 | Ubuntu 24.04 | 1GB | 10GB |
+| VM4 | free5GC  5GC U-Plane (PSA-UPF2) | 192.168.0.144/24 | Ubuntu 24.04 | 1GB | 10GB |
+| VM5 | UERANSIM RAN (gNodeB) | 192.168.0.131/24 | Ubuntu 24.04 | 1GB | 10GB |
+| VM6 | UERANSIM UE | 192.168.0.132/24 | Ubuntu 24.04 | 1GB | 10GB |
 
 Subscriber Information (other information is default) is as follows.  
 **Note. Please select OP or OPc according to the setting of UERANSIM UE configuration files.**
