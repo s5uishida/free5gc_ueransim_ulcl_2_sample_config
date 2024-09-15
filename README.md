@@ -659,7 +659,7 @@ listening on upfgtp, link-type RAW (Raw IP), snapshot length 262144 bytes
 tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
 listening on upfgtp, link-type RAW (Raw IP), snapshot length 262144 bytes
 ```
-- Run `tcpdump` on VM3 (U-Plane (PSA-UPF2))
+- Run `tcpdump` on VM4 (U-Plane (PSA-UPF2))
 ```
 # tcpdump -i upfgtp -n
 tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
