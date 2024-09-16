@@ -1,6 +1,7 @@
 # free5GC 5GC & UERANSIM UE / RAN Sample Configuration - ULCL with one I-UPF and two PSA-UPFs
 This describes a very simple configuration that uses free5GC and UERANSIM for ULCL with one I-UPF and two PSA-UPFs.  
-**Note. According to [this](https://forum.free5gc.org/t/access-to-local-dn-through-i-upf-in-ulcl-scenario/2512/4), the ULCL feature in free5GC v3.4.0 or later versions won’t work due to the lack of forwarding parameters in FAR creation.**
+**Note. According to [this](https://forum.free5gc.org/t/access-to-local-dn-through-i-upf-in-ulcl-scenario/2512/4), the ULCL feature in free5GC v3.4.0 or later versions won’t work due to the lack of forwarding parameters in FAR creation.
+Therefore, ULCL is confirmed here using the specified version of [go-upf](https://github.com/free5gc/go-upf) (free5GC UPF). Alternatively, you may use [NextMN-UPF](https://github.com/nextmn/upf) as UPF to confirm ULCL.**
 
 ---
 
@@ -1301,5 +1302,6 @@ I would like to thank the excellent developers and all the contributors of free5
 
 ## Changelog (summary)
 
+- [2024.09.16] Added a note at the beginning that ULCL can be confirmed using [NextMN-UPF](https://github.com/nextmn/upf) as UPF.
 - [2024.09.15] Updated to free5GC v3.4.3 (2024.09.12) and go-upf v1.2.1 (2023.12.19).
 - [2022.10.09] Initial release.
