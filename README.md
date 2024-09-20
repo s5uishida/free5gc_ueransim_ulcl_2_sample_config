@@ -1,6 +1,6 @@
 # free5GC 5GC & UERANSIM UE / RAN Sample Configuration - ULCL with one I-UPF and two PSA-UPFs
 This describes a very simple configuration that uses free5GC and UERANSIM for ULCL with one I-UPF and two PSA-UPFs.  
-**Instead of [go-upf](https://github.com/free5gc/go-upf.git) (free5GC UPF), you may use [NextMN-UPF](https://github.com/nextmn/upf) as UPF to confirm ULCL.**
+Instead of [go-upf](https://github.com/free5gc/go-upf.git) (free5GC UPF), you may use [NextMN-UPF](https://github.com/nextmn/upf) as UPF to confirm ULCL.
 
 ---
 
