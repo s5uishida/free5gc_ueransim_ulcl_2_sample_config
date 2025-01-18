@@ -26,7 +26,6 @@ Instead of [go-upf](https://github.com/free5gc/go-upf.git) (free5GC UPF), you ma
   - [Network settings of free5GC 5GC U-Plane (PSA-UPF1)](#network_settings_up2)
   - [Network settings of free5GC 5GC U-Plane (PSA-UPF2)](#network_settings_up3)
 - [Build free5GC and UERANSIM](#build)
-  - [Build go-upf](#build_upf)
 - [Run free5GC 5GC and UERANSIM UE / RAN](#run)
   - [Run free5GC 5GC U-Plane (I-UPF & PSA-UPFs)](#run_up)
   - [Run free5GC 5GC C-Plane](#run_cp)
@@ -594,8 +593,7 @@ Next, configure NAPT.
 
 Please refer to the following for building free5GC and UERANSIM respectively.
 - free5GC v3.4.3 (2024.09.12) - https://free5gc.org/guide/
-- go-upf v1.2.3 (2024.05.11) - https://free5gc.org/guide/
-- gtp5g v0.8.10 (2024.06.03) - https://free5gc.org/guide/
+- go-upf v1.2.3 (2024.05.11) - https://github.com/s5uishida/install_goupf
 - UERANSIM v3.2.6 (2024.08.27) - https://github.com/aligungr/UERANSIM/wiki/Installation
 
 Install MongoDB on free5GC 5GC C-Plane machine.
@@ -604,21 +602,6 @@ It is not necessary to install MongoDB on free5GC 5GC U-Plane machines.
 
 **Note. The installation guide also includes instructions on building the latest committed version.
 If it doesn't work properly and you suspect some bug, try updating all NFs by following this update procedure.**
-
-<a id="build_upf"></a>
-
-### Build go-upf
-
-For UPF, select the go-upf version that enables ULCL with the free5GC version selected this time.
-Please refer to the free5GC guide at the above URL for building free5GC UPF. Below show only the differences in the procedure.
-```
-# git clone -b v1.2.3 https://github.com/free5gc/go-upf.git
-# cd go-upf
-# CGO_ENABLED=0 go build -o upf cmd/main.go
-# ls upf
-upf
-# wget https://raw.githubusercontent.com/free5gc/free5gc/main/config/upfcfg.yaml
-```
 
 <a id="run"></a>
 
