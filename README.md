@@ -2,6 +2,8 @@
 This describes a very simple configuration that uses free5GC and UERANSIM for ULCL with one I-UPF and two PSA-UPFs.  
 Instead of [go-upf](https://github.com/free5gc/go-upf.git) (free5GC UPF), you may use [NextMN-UPF](https://github.com/nextmn/upf) as UPF to confirm ULCL.
 
+**Note. For ULCL limitations of free5GC v4.0.0, please see [here](https://free5gc.org/guide/SMF-Config/).**
+
 ---
 
 ### [Sample Configurations and Miscellaneous for Mobile Network](https://github.com/s5uishida/sample_config_misc_for_mobile_network)
@@ -1288,6 +1290,7 @@ I would like to thank the excellent developers and all the contributors of free5
 
 ## Changelog (summary)
 
+- [2025.03.16] Added the information about ULCL limitations in free5GC v4.0.0.
 - [2024.09.18] According to [this](https://github.com/free5gc/free5gc/issues/599#issuecomment-2357448799), the bug in the ULCL function of SMF has been fixed, so updated to go-upf v1.2.3.
 - [2024.09.16] Added a note at the beginning that ULCL can be confirmed using [NextMN-UPF](https://github.com/nextmn/upf) as UPF.
 - [2024.09.15] Updated to free5GC v3.4.3 (2024.09.12) and go-upf v1.2.1 (2023.12.19).
